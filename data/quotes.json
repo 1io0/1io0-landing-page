@@ -1,0 +1,53 @@
+{
+  "people": [
+    {
+      "id": "carl-sagan",
+      "name": {
+        "es": "Carl Sagan",
+        "en": "Carl Sagan"
+      },
+      "role": {
+        "es": "Astrónomo y divulgador científico",
+        "en": "Astronomer and science communicator"
+      },
+      "assetPath": "assets/carl_sagan.svg",
+      "quotes": [
+        {
+          "id": "carl-sagan-quote-1",
+          "text": {
+            "es": "En algún lugar, algo increíble está esperando ser descubierto.",
+            "en": "Somewhere, something incredible is waiting to be known."
+          }
+        },
+        {
+          "id": "carl-sagan-quote-2",
+          "text": {
+            "es": "La imaginación muchas veces nos llevará a mundos que nunca fueron. Pero sin ella, no iremos a ninguna parte.",
+            "en": "Imagination will often carry us to worlds that never were. But without it we go nowhere."
+          }
+        },
+        {
+          "id": "carl-sagan-quote-3",
+          "text": {
+            "es": "La ciencia es una manera de pensar mucho más que un cuerpo de conocimientos.",
+            "en": "Science is a way of thinking much more than it is a body of knowledge."
+          }
+        },
+        {
+          "id": "carl-sagan-quote-4",
+          "text": {
+            "es": "Somos una forma de que el cosmos se conozca a sí mismo.",
+            "en": "We are a way for the cosmos to know itself."
+          }
+        },
+        {
+          "id": "carl-sagan-quote-5",
+          "text": {
+            "es": "La ausencia de evidencia no es evidencia de ausencia.",
+            "en": "Absence of evidence is not evidence of absence."
+          }
+        }
+      ]
+    }
+  ]
+}

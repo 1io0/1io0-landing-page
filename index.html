@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1io0 — Tecnología para misiones reales</title>
+
+    <!-- Pixel fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              bg0: '#050815',
+              bg1: '#070b1e',
+              ink: '#eaf2ff',
+              muted: '#b7c6e6',
+              line: 'rgba(255,255,255,0.12)',
+              accentA: '#ff2d55', // Red
+              accentB: '#2bd7ff', // Cyan
+              accentC: '#ffd400', // Yellow
+              good: '#61ff95',
+            },
+            fontFamily: {
+              pixel: ['"Press Start 2P"', 'system-ui', 'sans-serif'],
+              ui: ['"VT323"', 'monospace'],
+            },
+            borderRadius: {
+              DEFAULT: '14px',
+            },
+            boxShadow: {
+              card: '0 18px 60px rgba(0,0,0,0.45)',
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* Global Custom Styles & Animations */
+      :root {
+        --radius: 14px;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px; /* Global offset for sticky headers */
+        overflow-x: hidden; /* Critical for mobile menu slide effects */
+      }
+      
+      body {
+        margin: 0;
+        color: #eaf2ff;
+        background-color: #050815; /* Fallback dark color */
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050815;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1f2937;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #2bd7ff;
+      }
+
+      /* Reveal Animation */
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px) scale(0.985);
+        transition: opacity 0.65s ease, transform 0.65s ease;
+      }
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; }
+        html { scroll-behavior: auto; }
+      }
+
+      /* Brand Mark Complex Gradient */
+      .brand-mark {
+        background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 40%),
+                    linear-gradient(135deg, rgba(255,212,0,.92), rgba(255,45,85,.9));
+      }
+      .brand-mark::after {
+        content: "";
+        position: absolute; inset: 6px;
+        border-radius: 8px;
+        background: radial-gradient(circle at 25% 25%, rgba(255,255,255,.18) 0 26%, transparent 27%),
+                    radial-gradient(circle at 65% 35%, rgba(255,255,255,.16) 0 23%, transparent 24%),
+                    radial-gradient(circle at 45% 70%, rgba(255,255,255,.14) 0 22%, transparent 23%);
+        opacity: 0.85;
+      }
+
+      /* Lego-ish card edge */
+      .lego-edge::before {
+        content: "";
+        position: absolute; left: 0; top: 0; right: 0; height: 10px;
+        background: linear-gradient(90deg, rgba(255,212,0,.35), rgba(255,45,85,.25), rgba(43,215,255,.25));
+        opacity: 0.7;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react/": "https://esm.sh/react@18.2.0/",
+    "react-dom/": "https://esm.sh/react-dom@18.2.0/",
+    "three": "https://esm.sh/three@0.160.0",
+    "@react-three/fiber": "https://esm.sh/@react-three/fiber@8.15.14?external=react,react-dom,three",
+    "@react-three/drei": "https://esm.sh/@react-three/drei@9.99.0?external=react,react-dom,three,@react-three/fiber"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
