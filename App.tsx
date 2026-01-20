@@ -8,6 +8,7 @@ import About from "./sections/About";
 import Contact from "./sections/Contact";
 import Quotes from "./sections/Quotes";
 import Footer from "./sections/Footer";
+import logoSvg from "./assets/logo.svg";
 
 const scrollToId = (id: string) => {
   const el = document.getElementById(id);
@@ -58,7 +59,7 @@ export default function App() {
             {/* Logo with pill-shaped background */}
             <div className="flex items-center px-4 py-2.5 rounded-full bg-white border border-white/90 shadow-[0_0_25px_rgba(255,255,255,0.3)]">
               <img
-                src="assets/logo.svg"
+                src={logoSvg}
                 alt="1io0"
                 className="h-[32px] md:h-[38px] w-auto object-contain"
               />

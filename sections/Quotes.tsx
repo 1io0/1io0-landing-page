@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
 import quotesData from "../data/quotes.json";
+import carlSaganSvg from "../assets/carl_sagan.svg";
 
 type QuotesJson = {
   people: Array<{
@@ -49,7 +50,7 @@ export default function Quotes() {
               <div className="flex items-center justify-center md:justify-end">
                 <div className="inline-flex bg-white/85 rounded-full shadow-[0_18px_55px_rgba(255,255,255,0.12)] border border-white/70 overflow-hidden">
                   <img
-                    src={person.assetPath}
+                    src={carlSaganSvg}
                     alt={person.name.es}
                     className="w-[96px] md:w-[112px] h-auto object-contain opacity-95 block"
                     loading="lazy"
