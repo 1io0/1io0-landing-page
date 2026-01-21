@@ -9,6 +9,8 @@ import Contact from "./sections/Contact";
 import Quotes from "./sections/Quotes";
 import Footer from "./sections/Footer";
 import logoSvg from "./assets/logo.svg";
+import { LanguageProvider, useLanguage } from "./lib/i18n";
+import { translations } from "./lib/translations";
 
 const scrollToId = (id: string) => {
   const el = document.getElementById(id);
@@ -16,7 +18,9 @@ const scrollToId = (id: string) => {
   el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-export default function App() {
+function AppContent() {
+  const { lang, setLanguage } = useLanguage();
+  const t = translations;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -65,11 +69,11 @@ export default function App() {
               />
             </div>
             <div className="font-ui text-[16px] md:text-[18px] text-muted opacity-85 leading-none self-end pb-1.5 hidden sm:block">
-              software · 3D · iA · iot
+              {t.nav.tagline[lang]}
             </div>
             {/* Mobile subtitle version */}
             <div className="font-ui text-[16px] text-muted opacity-85 leading-none self-end pb-1.5 sm:hidden">
-               sw · 3D
+               {t.nav.taglineMobile[lang]}
             </div>
           </div>
 
@@ -87,19 +91,42 @@ export default function App() {
           </button>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex gap-3.5 flex-wrap justify-end" aria-label="Secciones Desktop">
+          <nav className="hidden md:flex gap-3.5 flex-wrap justify-end items-center" aria-label="Secciones Desktop">
             {menuItems.map((item) => (
               <button 
                 key={item}
                 onClick={() => scrollToId(item.toLowerCase())}
                 className="font-ui text-xl px-2.5 py-1.5 border border-white/15 bg-white/5 text-ink rounded-[10px] hover:bg-accentB/10 hover:border-accentB/35 transition-colors cursor-pointer"
               >
-                {item === 'About' ? 'Nosotros' : 
-                 item === 'Services' ? 'Servicios' :
-                 item === 'Capabilities' ? 'Capacidades' :
-                 item === 'Process' ? 'Proceso' : 'Contacto'}
+                {t.nav[item.toLowerCase() as keyof typeof t.nav][lang]}
               </button>
             ))}
+
+            {/* Language Selector */}
+            <div className="flex gap-1.5 ml-2">
+              <button
+                onClick={() => setLanguage("es")}
+                className={`font-ui text-sm px-2 py-1 border rounded-lg transition-colors ${
+                  lang === "es" 
+                    ? "border-accentB/50 bg-accentB/20 text-ink" 
+                    : "border-white/10 bg-white/5 text-muted hover:bg-white/10"
+                }`}
+                aria-label="Cambiar a Español"
+              >
+                ES
+              </button>
+              <button
+                onClick={() => setLanguage("en")}
+                className={`font-ui text-sm px-2 py-1 border rounded-lg transition-colors ${
+                  lang === "en" 
+                    ? "border-accentB/50 bg-accentB/20 text-ink" 
+                    : "border-white/10 bg-white/5 text-muted hover:bg-white/10"
+                }`}
+                aria-label="Switch to English"
+              >
+                EN
+              </button>
+            </div>
           </nav>
         </div>
       </header>
@@ -120,19 +147,40 @@ export default function App() {
               onClick={() => handleNavClick(item.toLowerCase())}
               className="font-pixel text-xl md:text-2xl uppercase tracking-widest text-ink hover:text-accentB transition-colors py-2"
             >
-              {item === 'About' ? 'Nosotros' : 
-                item === 'Services' ? 'Servicios' :
-                item === 'Capabilities' ? 'Capacidades' :
-                item === 'Process' ? 'Proceso' : 'Contacto'}
+              {t.nav[item.toLowerCase() as keyof typeof t.nav][lang]}
             </button>
           ))}
 
             {/* Added decoration line */}
             <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-accentA to-transparent mx-auto mt-2 opacity-50" />
+
+            {/* Language Selector Mobile */}
+            <div className="flex gap-3 justify-center mt-4">
+              <button
+                onClick={() => setLanguage("es")}
+                className={`font-ui text-lg px-4 py-2 border rounded-lg transition-colors ${
+                  lang === "es" 
+                    ? "border-accentB/50 bg-accentB/20 text-ink" 
+                    : "border-white/10 bg-white/5 text-muted"
+                }`}
+              >
+                ES
+              </button>
+              <button
+                onClick={() => setLanguage("en")}
+                className={`font-ui text-lg px-4 py-2 border rounded-lg transition-colors ${
+                  lang === "en" 
+                    ? "border-accentB/50 bg-accentB/20 text-ink" 
+                    : "border-white/10 bg-white/5 text-muted"
+                }`}
+              >
+                EN
+              </button>
+            </div>
         </nav>
 
         <div className="mt-auto pb-10 font-ui text-muted opacity-50 text-lg">
-          1io0 Systems
+          {t.nav.company[lang]}
         </div>
       </div>
 
@@ -148,5 +196,13 @@ export default function App() {
 
       <Footer />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   );
 }
