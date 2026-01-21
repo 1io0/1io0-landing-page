@@ -15,6 +15,11 @@ const GOOGLE_SCRIPT_URL = SCRIPT_ID
 
 type Status = "idle" | "loading" | "success" | "error";
 
+interface FormResponse {
+  status: "success" | "error";
+  message?: string;
+}
+
 export default function Contact() {
   const { lang } = useLanguage();
   const t = translations.contact;
@@ -43,7 +48,9 @@ export default function Contact() {
     try {
       if (!SCRIPT_ID) {
         console.warn("VITE_GOOGLE_SCRIPT_ID is missing in .env");
-        throw new Error("Missing Script ID");
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+        return;
       }
 
       console.log("📤 Enviando datos:", formData);
@@ -73,16 +80,21 @@ export default function Contact() {
 
       // Check if response is ok (2xx status code)
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}, body: ${responseText}`);
+        console.error(`❌ HTTP error! status: ${response.status}, body: ${responseText}`);
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+        return;
       }
 
       // Try to parse as JSON
-      let result;
+      let result: FormResponse;
       try {
-        result = JSON.parse(responseText);
+        result = JSON.parse(responseText) as FormResponse;
       } catch (parseError) {
         console.error("❌ JSON parse error:", parseError);
-        throw new Error("Invalid JSON response from server");
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
+        return;
       }
 
       console.log("✅ Parsed result:", result);
@@ -92,7 +104,9 @@ export default function Contact() {
         setFormData({ name: "", email: "", message: "" });
         setTimeout(() => setStatus("idle"), 5000);
       } else {
-        throw new Error(result.message || "Unknown error");
+        console.error("❌ Result error:", result.message || "Unknown error");
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 5000);
       }
 
     } catch (error) {

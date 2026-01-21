@@ -81,43 +81,37 @@
         background: #2bd7ff;
       }
 
-      /* Reveal Animation */
+      /* Reveal Animation - Used in App.tsx, Hero.tsx, SectionShell.tsx, Quotes.tsx */
+      /* noinspection CssUnusedSymbol */
       .reveal {
         opacity: 0;
         transform: translateY(16px) scale(0.985);
         transition: opacity 0.65s ease, transform 0.65s ease;
       }
+      /* noinspection CssUnusedSymbol */
       .reveal.is-visible {
         opacity: 1;
         transform: translateY(0) scale(1);
       }
 
       @media (prefers-reduced-motion: reduce) {
+        /* noinspection CssUnusedSymbol */
         .reveal { opacity: 1; transform: none; }
         html { scroll-behavior: auto; }
       }
 
-      /* Brand Mark Complex Gradient */
-      .brand-mark {
-        background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 40%),
-                    linear-gradient(135deg, rgba(255,212,0,.92), rgba(255,45,85,.9));
-      }
-      .brand-mark::after {
-        content: "";
-        position: absolute; inset: 6px;
-        border-radius: 8px;
-        background: radial-gradient(circle at 25% 25%, rgba(255,255,255,.18) 0 26%, transparent 27%),
-                    radial-gradient(circle at 65% 35%, rgba(255,255,255,.16) 0 23%, transparent 24%),
-                    radial-gradient(circle at 45% 70%, rgba(255,255,255,.14) 0 22%, transparent 23%);
-        opacity: 0.85;
-      }
-
-      /* Lego-ish card edge */
+      /* Lego-ish card edge - Used in multiple section components */
+      /* noinspection CssUnusedSymbol */
       .lego-edge::before {
         content: "";
         position: absolute; left: 0; top: 0; right: 0; height: 10px;
         background: linear-gradient(90deg, rgba(255,212,0,.35), rgba(255,45,85,.25), rgba(43,215,255,.25));
         opacity: 0.7;
+      }
+
+      /* Strong tags in muted text should be ink colored */
+      .text-muted strong {
+        color: #eaf2ff;
       }
     </style>
   <script type="importmap">

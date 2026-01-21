@@ -214,20 +214,20 @@ export const translations = {
       en: "<strong>Security</strong> first"
     },
     software: {
-      es: "<strong className=\"text-ink\">Desarrollo de Software:</strong> Ingeniería de aplicaciones robustas con enfoque en Clean Architecture, alta disponibilidad y performance extrema. Especialistas en React, Next.js y ecosistemas TypeScript/Node para web y móvil.",
-      en: "<strong className=\"text-ink\">Software Development:</strong> Engineering robust applications with a focus on Clean Architecture, high availability and extreme performance. Specialists in React, Next.js and TypeScript/Node ecosystems for web and mobile."
+      es: "<strong>Desarrollo de Software:</strong> Ingeniería de aplicaciones robustas con enfoque en Clean Architecture, alta disponibilidad y performance extrema. Especialistas en React, Next.js y ecosistemas TypeScript/Node para web y móvil.",
+      en: "<strong>Software Development:</strong> Engineering robust applications with a focus on Clean Architecture, high availability and extreme performance. Specialists in React, Next.js and TypeScript/Node ecosystems for web and mobile."
     },
     ai: {
-      es: "<strong className=\"text-ink\">Inteligencia Artificial:</strong> Implementación de RAG (Retrieval-Augmented Generation), fine-tuning de modelos LLM, sistemas de visión por computadora y automatización mediante agentes cognitivos autónomos.",
-      en: "<strong className=\"text-ink\">Artificial Intelligence:</strong> RAG (Retrieval-Augmented Generation) implementation, LLM model fine-tuning, computer vision systems and automation through autonomous cognitive agents."
+      es: "<strong>Inteligencia Artificial:</strong> Implementación de RAG (Retrieval-Augmented Generation), fine-tuning de modelos LLM, sistemas de visión por computadora y automatización mediante agentes cognitivos autónomos.",
+      en: "<strong>Artificial Intelligence:</strong> RAG (Retrieval-Augmented Generation) implementation, LLM model fine-tuning, computer vision systems and automation through autonomous cognitive agents."
     },
     visualization: {
-      es: "<strong className=\"text-ink\">Visualización 3D & Tiempo Real:</strong> Gemelos digitales, configuradores 3D interactivos optimizados para navegadores y experiencias inmersivas con WebGL/Three.js.",
-      en: "<strong className=\"text-ink\">3D Visualization & Real-Time:</strong> Digital twins, interactive 3D configurators optimized for browsers and immersive experiences with WebGL/Three.js."
+      es: "<strong>Visualización 3D & Tiempo Real:</strong> Gemelos digitales, configuradores 3D interactivos optimizados para navegadores y experiencias inmersivas con WebGL/Three.js.",
+      en: "<strong>3D Visualization & Real-Time:</strong> Digital twins, interactive 3D configurators optimized for browsers and immersive experiences with WebGL/Three.js."
     },
     iot: {
-      es: "<strong className=\"text-ink\">IoT & Conectividad:</strong> Telemetría industrial, Edge computing, protocolos seguros de baja latencia (MQTT/gRPC) y gestión remota de flotas de dispositivos.",
-      en: "<strong className=\"text-ink\">IoT & Connectivity:</strong> Industrial telemetry, Edge computing, secure low-latency protocols (MQTT/gRPC) and remote device fleet management."
+      es: "<strong>IoT & Conectividad:</strong> Telemetría industrial, Edge computing, protocolos seguros de baja latencia (MQTT/gRPC) y gestión remota de flotas de dispositivos.",
+      en: "<strong>IoT & Connectivity:</strong> Industrial telemetry, Edge computing, secure low-latency protocols (MQTT/gRPC) and remote device fleet management."
     }
   },
 
@@ -414,4 +414,3 @@ export const translations = {
   }
 };
 
-export type Translations = typeof translations;
