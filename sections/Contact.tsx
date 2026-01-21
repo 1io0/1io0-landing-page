@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import SectionShell from "../components/ui/SectionShell";
 import PixelButton from "../components/ui/PixelButton";
+import { useLanguage } from "../lib/i18n";
+import { translations } from "../lib/translations";
 
 /**
  * Accessing environment variables. 
@@ -14,6 +16,9 @@ const GOOGLE_SCRIPT_URL = SCRIPT_ID
 type Status = "idle" | "loading" | "success" | "error";
 
 export default function Contact() {
+  const { lang } = useLanguage();
+  const t = translations.contact;
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -107,21 +112,19 @@ export default function Contact() {
   return (
     <SectionShell
       id="contact"
-      kicker="Contacto"
-      title="¿Listos para lanzar?"
-      subtitle="Cuéntanos el objetivo, el deadline y el nivel de órbita (MVP / v1 / escala)."
+      kicker={t.kicker[lang]}
+      title={t.title[lang]}
+      subtitle={t.subtitle[lang]}
       right={
         <div className="p-5 md:p-[22px] rounded-[14px] border border-white/10 bg-bg0/80 backdrop-blur-sm bg-[radial-gradient(1200px_500px_at_0%_0%,rgba(43,215,255,0.12),transparent_55%),radial-gradient(900px_500px_at_100%_0%,rgba(255,45,85,0.12),transparent_55%)] shadow-card relative overflow-hidden lego-edge">
-          <div className="font-pixel text-sm md:text-base mb-2.5">Canales</div>
-          <div className="font-ui text-[18px] md:text-[22px] leading-[1.4] md:leading-[1.25] text-muted">
-            • hola@1io0.com
-            <br />
-            • Reunión 30 min: brief + roadmap
-            <br />
-          </div>
+          <div className="font-pixel text-sm md:text-base mb-2.5">{t.channelsTitle[lang]}</div>
+          <div
+            className="font-ui text-[18px] md:text-[22px] leading-[1.4] md:leading-[1.25] text-muted"
+            dangerouslySetInnerHTML={{ __html: t.channels[lang] }}
+          />
           <div className="h-px bg-gradient-to-r from-transparent via-line to-transparent my-6" />
           <div className="font-ui text-[18px] md:text-[22px] leading-[1.4] md:leading-[1.25] text-muted">
-            Tip: si es IA, describe el tipo de datos y el caso de uso principal.
+            {t.tip[lang]}
           </div>
         </div>
       }
@@ -131,7 +134,7 @@ export default function Contact() {
         onSubmit={handleSubmit}
       >
         <div className="font-ui text-[18px] md:text-[22px] leading-[1.4] md:leading-[1.25] text-muted mb-3">
-          Envía tu mensaje directamente a nuestro centro de control.
+          {t.formIntro[lang]}
         </div>
 
         <div className="space-y-4">
@@ -140,7 +143,7 @@ export default function Contact() {
               htmlFor="name"
               className="font-ui text-[18px] md:text-[22px] text-muted block"
             >
-              Nombre
+              {t.nameLabel[lang]}
             </label>
             <input
               id="name"
@@ -149,7 +152,7 @@ export default function Contact() {
               value={formData.name}
               onChange={handleInputChange}
               className="w-full mt-1.5 p-3 rounded-xl border border-white/15 bg-black/40 text-ink font-ui text-lg md:text-xl outline-none focus:border-accentB/45 focus:shadow-[0_0_0_4px_rgba(43,215,255,0.12)] placeholder-white/20"
-              placeholder="Tu nombre"
+              placeholder={t.namePlaceholder[lang]}
             />
           </div>
 
@@ -158,7 +161,7 @@ export default function Contact() {
               htmlFor="email"
               className="font-ui text-[18px] md:text-[22px] text-muted block"
             >
-              Email
+              {t.emailLabel[lang]}
             </label>
             <input
               id="email"
@@ -168,7 +171,7 @@ export default function Contact() {
               value={formData.email}
               onChange={handleInputChange}
               className="w-full mt-1.5 p-3 rounded-xl border border-white/15 bg-black/40 text-ink font-ui text-lg md:text-xl outline-none focus:border-accentB/45 focus:shadow-[0_0_0_4px_rgba(43,215,255,0.12)] placeholder-white/20"
-              placeholder="tu@correo.com"
+              placeholder={t.emailPlaceholder[lang]}
             />
           </div>
 
@@ -177,7 +180,7 @@ export default function Contact() {
               htmlFor="message"
               className="font-ui text-[18px] md:text-[22px] text-muted block"
             >
-              ¿Qué vamos a construir?
+              {t.messageLabel[lang]}
             </label>
             <textarea
               id="message"
@@ -187,7 +190,7 @@ export default function Contact() {
               onChange={handleInputChange}
               className="w-full mt-1.5 p-3 rounded-xl border border-white/15 bg-black/40 text-ink font-ui text-lg md:text-xl outline-none focus:border-accentB/45 focus:shadow-[0_0_0_4px_rgba(43,215,255,0.12)] placeholder-white/20"
               rows={4}
-              placeholder="Describe el objetivo y contexto de tu misión."
+              placeholder={t.messagePlaceholder[lang]}
             />
           </div>
         </div>
@@ -197,20 +200,20 @@ export default function Contact() {
             variant="primary"
             type="submit"
           >
-            {status === "loading" ? "Enviando..." : "Iniciar Lanzamiento"}
+            {status === "loading" ? t.submitting[lang] : t.submitButton[lang]}
           </PixelButton>
 
           {status === "success" && (
             <div className="font-ui text-lg md:text-xl text-good flex items-center gap-2 animate-pulse">
               <span className="w-2 h-2 rounded-full bg-good" />
-              ¡Transmisión recibida con éxito!
+              {t.successMessage[lang]}
             </div>
           )}
 
           {status === "error" && (
             <div className="font-ui text-lg md:text-xl text-accentA flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-accentA" />
-              Error en la comunicación. Reintenta.
+              {t.errorMessage[lang]}
             </div>
           )}
         </div>

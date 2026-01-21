@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import quotesData from "../data/quotes.json";
 import carlSaganSvg from "../assets/carl_sagan.svg";
+import { useLanguage } from "../lib/i18n";
 
 type QuotesJson = {
   people: Array<{
@@ -16,6 +17,7 @@ type QuotesJson = {
 };
 
 export default function Quotes() {
+  const { lang } = useLanguage();
   const data = quotesData as unknown as QuotesJson;
   const person = data.people[0];
 
@@ -36,14 +38,14 @@ export default function Quotes() {
             <div className="grid grid-cols-1 md:grid-cols-[1.25fr_0.75fr] gap-7 md:gap-8 items-center">
               <div>
                 <div className="font-ui text-[22px] md:text-[30px] leading-[1.4] md:leading-[1.25] text-ink">
-                  <span className="text-muted">“</span>
-                  {quote.text.es}
-                  <span className="text-muted">”</span>
+                  <span className="text-muted">"</span>
+                  {quote.text[lang]}
+                  <span className="text-muted">"</span>
                 </div>
 
                 <div className="mt-5 font-ui text-muted text-[16px] md:text-[18px]">
-                  {person.name.es}
-                  {person.role?.es ? `  • ${person.role.es}` : ""}
+                  {person.name[lang]}
+                  {person.role?.[lang] ? `  • ${person.role[lang]}` : ""}
                 </div>
               </div>
 
@@ -51,7 +53,7 @@ export default function Quotes() {
                 <div className="inline-flex bg-white/85 rounded-full shadow-[0_18px_55px_rgba(255,255,255,0.12)] border border-white/70 overflow-hidden">
                   <img
                     src={carlSaganSvg}
-                    alt={person.name.es}
+                    alt={person.name[lang]}
                     className="w-[96px] md:w-[112px] h-auto object-contain opacity-95 block"
                     loading="lazy"
                   />
