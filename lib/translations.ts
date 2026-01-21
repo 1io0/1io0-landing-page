@@ -141,7 +141,7 @@ export const translations = {
         },
         desc: {
           es: "Diseño de interfaces operacionales con estética y dashboards predictivos.",
-          en: "Operational interface design with aesthetics and predictive dashboards."
+          en: "Operational interface design with style and predictive dashboards."
         }
       },
       {
@@ -215,7 +215,7 @@ export const translations = {
     },
     software: {
       es: "<strong className=\"text-ink\">Desarrollo de Software:</strong> Ingeniería de aplicaciones robustas con enfoque en Clean Architecture, alta disponibilidad y performance extrema. Especialistas en React, Next.js y ecosistemas TypeScript/Node para web y móvil.",
-      en: "<strong className=\"text-ink\">Software Development:</strong> Engineering robust applications with focus on Clean Architecture, high availability and extreme performance. Specialists in React, Next.js and TypeScript/Node ecosystems for web and mobile."
+      en: "<strong className=\"text-ink\">Software Development:</strong> Engineering robust applications with a focus on Clean Architecture, high availability and extreme performance. Specialists in React, Next.js and TypeScript/Node ecosystems for web and mobile."
     },
     ai: {
       es: "<strong className=\"text-ink\">Inteligencia Artificial:</strong> Implementación de RAG (Retrieval-Augmented Generation), fine-tuning de modelos LLM, sistemas de visión por computadora y automatización mediante agentes cognitivos autónomos.",
@@ -309,7 +309,7 @@ export const translations = {
     },
     title: {
       es: "Ingeniería con alma de juguete",
-      en: "Engineering with toy soul"
+      en: "Engineering with a playful soul"
     },
     subtitle: {
       es: "Serios con la calidad, juguetones con el estilo: bloques claros, interfaces legibles, detalles sci‑fi.",
@@ -325,7 +325,7 @@ export const translations = {
     },
     description: {
       es: "En 1io0 combinamos estética con prácticas modernas: versionado, pruebas, observabilidad, y una obsesión por interfaces \"operacionales\" (las que se entienden incluso en modo emergencia).",
-      en: "At 1io0 we combine aesthetics with modern practices: versioning, testing, observability, and an obsession with \"operational\" interfaces (the ones that are understood even in emergency mode)."
+      en: "At 1io0 we combine aesthetics with modern practices: versioning, testing, observability, and an obsession with \"operational\" interfaces (those understood even in emergency mode)."
     }
   },
 
